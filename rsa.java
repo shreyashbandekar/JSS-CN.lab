@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class rsa {
     public static int gcd(int a, int b) {
         while (b != 0) {
             int temp = b;
@@ -66,13 +66,14 @@ public class Main {
         int phi = (p - 1) * (q - 1);
         int e = findCoprime(phi);
         int d = findPrivateKey(e, phi);
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter plaintext: ");
-        String plaintext = scanner.nextLine();
-        List<Integer> ct = rsaEncrypt(plaintext, e, n);
-        System.out.println("Ciphertext: " + ct);
-        String pt = rsaDecrypt(ct, d, n);
-        System.out.println("Plaintext: " + pt);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter plaintext: ");
+            String plaintext = scanner.nextLine();
+            List<Integer> ct = rsaEncrypt(plaintext, e, n);
+            System.out.println("Ciphertext: " + ct);
+            String pt = rsaDecrypt(ct, d, n);
+            System.out.println("Plaintext: " + pt);
+        }
     }
 }
 
