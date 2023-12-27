@@ -22,8 +22,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/shrey/Desktop/5 sem CS/JSS-CN.lab",
-      "program": "c:/Users/shrey/Desktop/5 sem CS/JSS-CN.lab/build/Debug/outDebug",
+      "cwd": "c:/Users/shrey/Desktop/5 sem CS/JSS-CN.lab/JSS-CN.lab",
+      "program": "c:/Users/shrey/Desktop/5 sem CS/JSS-CN.lab/JSS-CN.lab/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
