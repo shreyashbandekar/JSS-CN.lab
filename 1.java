@@ -1,60 +1,78 @@
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
-class Frame {
-    int seqNo;
-    int data;
-
-    public Frame(int seqNo) {
-        this.seqNo = seqNo;
+class Frame
+{
+ private int value;
+ private int SeqNum;
+ 
+ public Frame(int value, int SeqNum)
+ {
+   this.value=value;
+   this.SeqNum=SeqNum;
+ }
+ public int getvalue()
+ {
+ return value;
+ }
+ public int getSeqNum()
+ {
+ return SeqNum;
+ }
+ public void setSeqNUm(int setSeq)
+ {
+  SeqNum=setSeq;
+ }
+ public void setvalue(int v)
+ {
+ value=v;
+ }
+ }
+ public class BubblesortFrames
+ {
+   public static void main(String args[])
+   {
+     Scanner sc =new Scanner(System.in);
+     Random random=new Random();
+     System.out.print("Enter The number of frames:");
+     int n=sc.nextInt();
+     Frame frames[]=new Frame[n];
+     for(int i=0;i<n;i++)
+     {
+      System.out.print("enter the value of the Frame "+(i+1)+":");
+      int val=sc.nextInt();
+      int seqNo=random.nextInt(1000);
+      frames[i]=new Frame(val,seqNo);
+      }
+      
+      System.out.println("Frames before sorting are:");
+       printF(frames);
+       System.out.println("frames after sorting are :");
+     bubblesort(frames,n);
+      printF(frames);
+      }
+    
+  public static void  printF(Frame frames[])
+    {
+    for(Frame it:frames)
+    {
+      System.out .println(it.getvalue()+"->"+it.getSeqNum());
+      }
     }
-}
-
-public class Main {
-
-    public static void bubbleSort(List<Frame> frames) {
-        int n = frames.size();
-        for (int i = 0; i < n-1; i++) {
-            for (int j = 0; j < n-i-1; j++) {
-                if (frames.get(j).seqNo > frames.get(j+1).seqNo) {
-                    Frame temp = frames.get(j);
-                    frames.set(j, frames.get(j+1));
-                    frames.set(j+1, temp);
-                }
-            }
-        }
+    public static void bubblesort(Frame frames[], int n)
+    {
+    for(int i=0;i<n-1;i++)
+    {
+     for(int j=0;j<n-i-1;j++)
+     {
+       if(frames[j].getSeqNum()>frames[j+1].getSeqNum())
+       {
+         Frame temp=frames[j];
+         frames[j]=frames[j+1];
+         frames[j+1]=temp;
+       }    
     }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of frames: ");
-        int n = scanner.nextInt();
-
-        List<Integer> seqList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            int x = (int) (Math.random() * (n * 100)) + 1;
-            while (seqList.contains(x)) {
-                x = (int) (Math.random() * (n * 100)) + 1;
-            }
-            seqList.add(x);
-        }
-
-        List<Frame> frames = new ArrayList<>();
-        for (int seqNo : seqList) {
-            frames.add(new Frame(seqNo));
-        }
-
-        for (Frame frame : frames) {
-            System.out.print("Enter data for frame " + frame.seqNo + ": ");
-            frame.data = scanner.nextInt();
-        }
-
-        bubbleSort(frames);
-
-        for (Frame frame : frames) {
-            System.out.println("Frame " + frame.seqNo + " : " + frame.data);
-        }
     }
-}
+    }
+    
+ }
