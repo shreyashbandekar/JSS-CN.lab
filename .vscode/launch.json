@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SimpleCRC",
+      "request": "launch",
+      "mainClass": "SimpleCRC",
+      "projectName": "JSS-CN.lab_caeb0ab0"
+    },
+    {
+      "type": "java",
+      "name": "crc",
+      "request": "launch",
+      "mainClass": "crc",
+      "projectName": "JSS-CN.lab_caeb0ab0"
+    },
+    {
+      "type": "java",
+      "name": "BubblesortFramesSimple",
+      "request": "launch",
+      "mainClass": "BubblesortFramesSimple",
+      "projectName": "JSS-CN.lab_caeb0ab0"
+    },
+    {
+      "type": "java",
+      "name": "hi",
+      "request": "launch",
+      "mainClass": "hi",
+      "projectName": "JSS-CN.lab_caeb0ab0"
+    },
+    {
+      "type": "java",
+      "name": "Fram",
+      "request": "launch",
+      "mainClass": "Fram",
+      "projectName": "JSS-CN.lab_caeb0ab0"
+    },
+    {
+      "type": "java",
+      "name": "BubblesortFrames",
+      "request": "launch",
+      "mainClass": "BubblesortFrames",
+      "projectName": "JSS-CN.lab_caeb0ab0"
+    },
+    {
+      "type": "java",
       "name": "UdpServer",
       "request": "launch",
       "mainClass": "UdpServer",
