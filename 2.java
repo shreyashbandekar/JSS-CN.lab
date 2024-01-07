@@ -1,38 +1,39 @@
-//Write a program for error detecting code using CRC-CCITT (16- bits).
+//Write a program for error-detecting code using CRC-CCITT (16- bits).
 import java.util.Scanner;
-public class CRC {
-    public static String crc(String data, String poly, boolean errChk) {
-        String rem = data;
-        if (!errChk) {
-            for (int i = 0; i < poly.length() - 1; i++)
-                rem += "0";
-        }
-        for (int i = 0; i < rem.length() - poly.length() + 1; i++) {
-            if (rem.charAt(i) == '1') {
-                for (int j = 0; j < poly.length(); j++) {
-                    rem = rem.substring(0, i + j) + (rem.charAt(i + j) == poly.charAt(j) ? '0' : '1') + rem.substring(i + j + 1);
-                }
+
+public class SimpleCRC {
+    private static final int POLYNOMIAL = 0x1021;
+    private static final int INITIAL_CRC = 0xFFFF;
+
+    public static String calculateCRC(String data) {
+        int crc = INITIAL_CRC;
+        for (char c : data.toCharArray()) {
+            int ascii = (int) c;
+            crc ^= (ascii << 8) & 0xFFFF;
+            for (int i = 0; i < 8; i++) {
+                if ((crc & 0x8000) != 0)
+                    crc = (crc << 1) ^ POLYNOMIAL;
+                else
+                    crc <<= 1;
+                crc &= 0xFFFF; // Ensure it's a 16-bit value
             }
         }
-        return rem.substring(rem.length() - poly.length() + 1);
+        return Integer.toHexString(crc).toUpperCase();
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String poly = "10000100010001010";
-        System.out.print("Enter Data to be sent: ");
-        String data = scanner.nextLine();
-        String rem = crc(data, poly, false);
-        String codeword = data + rem;
-        System.out.println("Remainder: " + rem);
-        System.out.println("Codeword: " + codeword);
-        System.out.print("Enter received codeword: ");
-        String recvCodeword = scanner.nextLine();
-        String recvRem = crc(recvCodeword, poly, true);
-        if (Integer.parseInt(recvRem) == 0) {
-            System.out.println("No Error");
-        } else {
-            System.out.println("Error Detected");
-        }
-        scanner.close();
+        System.out.print("Enter the data for CRC calculation: ");
+        String inputData = scanner.nextLine().trim();
+        String calculatedCRC = calculateCRC(inputData);
+        System.out.println("Calculated CRC: " + calculatedCRC);
+        System.out.print("Enter the received data (message + CRC): ");
+        String receivedData = scanner.nextLine().trim();
+        String receivedMessage = receivedData.substring(0, receivedData.length() - calculatedCRC.length());
+        String receivedCRC = receivedData.substring(receivedData.length() - calculatedCRC.length());
+        if (calculatedCRC.equals(receivedCRC))
+            System.out.println("CRC Check: Data is intact. Received message: " + receivedMessage);
+        else
+            System.out.println("CRC Check: Data is corrupted. Discarding the message.");
+            scanner.close();
     }
 }
