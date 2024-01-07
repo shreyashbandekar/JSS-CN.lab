@@ -39,6 +39,7 @@ public class SimpleCRC {
         else
             System.out.println("CRC Check: Data is corrupted. Discarding the message.");
 
+        
         scanner.close();
     }
 }
