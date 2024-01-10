@@ -30,10 +30,10 @@
 |7|Write a program for congestion control using leaky bucket algorithm and token bucket algorithm.|
 |8|Write a program to implement random early detection (RED) congestion control algorithm.|
 |**PART-B: Simulation Experiments using NS2/ NS3/ NetSim or any other suitable simulation software**|
-|<p></p><p>9</p>|Implement three nodes point – to – point network with duplex links between them. Set the queue size, vary the bandwidth and find the number of packets dropped.|
-|<p></p><p>10</p>|Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion|
-|11|Implement an Ethernet LAN using n nodes and set multiple traffic nodes and plot congestion window for different source / destination.|
-|<p></p><p>12</p>|Implement simple ESS and with transmitting nodes in wire-less LAN by simulation and determine the performance with respect to transmission of packets|
+|<p></p><p>10.a</p>|Implement three nodes point – to – point network with duplex links between them. Set the queue size, vary the bandwidth and find the number of packets dropped.|
+|<p></p><p>10.b</p>|Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion|
+|11.a|Implement an Ethernet LAN using n nodes and set multiple traffic nodes and plot congestion window for different source / destination.|
+|<p></p><p>11.b</p>|Implement simple ESS and with transmitting nodes in wire-less LAN by simulation and determine the performance with respect to transmission of packets|
 |13|**Lab Test/Event**|
 
 **Text Book:**
